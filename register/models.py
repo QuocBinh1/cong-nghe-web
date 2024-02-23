@@ -6,5 +6,6 @@ class contactForm(models.Model):
     email = models.EmailField()
     body = models.TextField()
 
+
     def __str__(self): # hien ra ten o admin (de nhan biet)
         return self.username 
