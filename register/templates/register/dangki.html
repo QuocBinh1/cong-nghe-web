@@ -10,7 +10,7 @@
 <body>
     day la trang dang ki trong dangki.html
     {% block content  %}
-        <form action="{% url 'register:register' %}" method="post">
+        <form action="{% url 'register:saveRegister' %}" method="post">
             {% csrf_token %} 
             {{cf.as_p}}
             <input type="submit"  >
