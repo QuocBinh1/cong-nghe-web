@@ -1,1 +1,31 @@
+
+repo : nơi lưu trữ lịch sửa thay đổi của dự án
+conmmit: thêm sửa xóa có thể truy người thêm sửa xóa
+branch : 
+
+git init : tạo mới
+git clone : 
+git pull : 
+
+git add <tenfile> và git add. #add tất cả
+git commit
+git push : lưu thay đổi
+git log : đọc xem ai thêm sửa xóa
+git log - decorate - graph - oneline
+
+
+----------------------------
+tạo 1 file và đẩy lên github
+git add .		 #add tất cả file
+git commit -m "..."	 #lưu thay đổi vào máy
+git push origin main	 # đẩy lên github
+
+
+----------------------------------
+tải 1 folder về máy :
+vào github coopy link 
+git clone <link vừa coppys>
+
+
+
 git pull // đồng bộ code với github
