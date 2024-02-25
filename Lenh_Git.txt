@@ -25,4 +25,7 @@ git push origin main	 # đẩy lên github
 tải 1 folder về máy :
 vào github coopy link 
 git clone <link vừa coppys>
+
+
+
 git pull // đồng bộ code với github
