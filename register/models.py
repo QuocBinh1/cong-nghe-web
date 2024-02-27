@@ -8,4 +8,5 @@ class contactForm(models.Model):
 
 
     def __str__(self): # hien ra ten o admin (de nhan biet)
-        return self.email 
+        #  return f"username : {self.username} Email: {self.email} body : {self.body}"
+        return self.username

@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'home',
     'register',
     'login',
+    'news',
 
 
     #tên thư mục 

@@ -1,8 +1,9 @@
 from django.urls import path 
 from . import views
-app_name = 'register'
+from models import postForm
+app_name = 'news'
 urlpatterns = [
-    path('' , views.register.as_view() , name = 'register'),
+    path('' , views.postForm.as_view() , name = 'news'),
     #path('saveRegister/' , views.saveRegister , name = "saveRegister")
 
 
