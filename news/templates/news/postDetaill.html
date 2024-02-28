@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,12 +8,8 @@
 </head>
 <body>
     hello   
-    {% block content%}
-        {% for i in pf %}
-            <p><a href="{% url 'news:postDetaill' i.id %}">{{i.title}}</a></p>
-            
-        {% endfor %}   
-
+    {% block content %}
+      {{pd.title}}
     {% endblock %}
 </body>
 </html>

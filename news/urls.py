@@ -1,9 +1,10 @@
 from django.urls import path 
 from . import views
-from models import postForm
+
 app_name = 'news'
 urlpatterns = [
-    path('' , views.postForm.as_view() , name = 'news'),
+    path('' , views.post_list_news , name = 'news'),
+    path('<int:id>/' , views.postDetaill , name = 'postDetaill'),
     #path('saveRegister/' , views.saveRegister , name = "saveRegister")
 
 
