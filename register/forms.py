@@ -1,9 +1,9 @@
 from django import forms
 
 class contact_Form(forms.Form):
-    username = forms.CharField(max_length = 25)
+    username = forms.CharField(max_length = 20)
     email = forms.EmailField()
-    body = forms.CharField(widget = forms.Textarea)
-    
+    password = forms.CharField(max_length=20 , widget=forms.PasswordInput) 
+   
     
 

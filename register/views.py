@@ -3,6 +3,8 @@ from django.http import HttpResponse
 from .forms import contact_Form
 from .models import contactForm
 from django.views import View
+
+
 class register(View):
     def get(self , request):
         cf = contact_Form
@@ -14,7 +16,7 @@ class register(View):
                 savecf = contactForm(
                     username = cf.cleaned_data['username'],
                     email = cf.cleaned_data['email'],
-                    body = cf.cleaned_data['body']
+                    password = cf.cleaned_data['password']
                 )
                 savecf.save()
                 return HttpResponse("luu thanh cong")
