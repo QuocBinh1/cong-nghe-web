@@ -1,6 +1,7 @@
+from django.contrib.auth import authenticate , login
 from django.shortcuts import render
 from django.http import HttpResponse
-from .forms import contact_Form
+from .forms import contact_Form , login_Form
 from .models import contactForm
 from django.views import View
 
@@ -25,3 +26,25 @@ class register(View):
 
         else:
             return HttpResponse ("khong luu dcuo")
+
+
+class loginView(View):
+    def get(self , request):
+        lf = login_Form
+        return render(request, 'register/dangnhap.html', {'lf': lf} )
+    def post(self , request):
+        username = request.POST['username']
+        password = request.POST['password']
+
+        # return HttpResponse(username)
+        # return HttpResponse(password)
+        user = authenticate(request ,username = username , password = password)
+        if user is not None:
+            login(request,user)
+            return HttpResponse("login success")
+        else:
+            return HttpResponse("login fall")
+
+
+
+

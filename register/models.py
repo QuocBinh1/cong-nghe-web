@@ -4,7 +4,7 @@ from django.db import models
 class contactForm(models.Model):
     username = models.CharField(max_length = 25)
     email = models.EmailField()
-    password = models.CharField(max_length=20 ) 
+    password = models.CharField(max_length=20,default='' ) 
 
 
     def __str__(self): # hien ra ten o admin (de nhan biet)
