@@ -1,6 +1,6 @@
 from django import forms
 
-class contact_Form(forms.Form):
+class register_Form(forms.Form):
     username = forms.CharField(max_length = 20)
     email = forms.EmailField()
     password = forms.CharField(max_length=20 , widget=forms.PasswordInput) 

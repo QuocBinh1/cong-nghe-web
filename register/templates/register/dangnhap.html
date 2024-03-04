@@ -8,7 +8,7 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <a href="/home">trang chủ</a>
     {% block content  %}
         <form action="{% url 'register:login' %}"  method="post">
             {% csrf_token %} 

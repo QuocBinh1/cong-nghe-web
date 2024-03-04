@@ -8,11 +8,12 @@
     <title>Document</title>
 </head>
 <body>
+    <a href="/home">trang chủ</a>
     day la trang dang ki trong dangki.html
     {% block content  %}
         <form action="{% url 'register:register' %}" method="post">
             {% csrf_token %} 
-            {{cf.as_p}}
+            {{rf.as_p}}
             <input type="submit"  >
         </form>
        

@@ -1,31 +1,31 @@
 from django.contrib.auth import authenticate , login
+from django.contrib.auth.models import User
 from django.shortcuts import render
 from django.http import HttpResponse
-from .forms import contact_Form , login_Form
-from .models import contactForm
+
+
+
+from .forms import register_Form , login_Form
+from .models import register_models
 from django.views import View
 
 
-class register(View):
+class registerView(View):
     def get(self , request):
-        cf = contact_Form
-        return render(request, 'register/dangki.html', {'cf': cf} )
+        rf = register_Form
+        return render(request, 'register/dangki.html', {'rf': rf} )
     def post(self , request):
-        if request.method == "POST":
-            cf = contact_Form(request.POST)
-            if cf.is_valid():
-                savecf = contactForm(
-                    username = cf.cleaned_data['username'],
-                    email = cf.cleaned_data['email'],
-                    password = cf.cleaned_data['password']
-                )
-                savecf.save()
-                return HttpResponse("luu thanh cong")
-            else:
-                return HttpResponse("Dữ liệu không hợp lệ")
+        username = request.POST['username']
+        email = request.POST['email']
+        password = request.POST['password']
+        if User.objects.filter(username=username).exists():
+            return HttpResponse("Tên người dùng đã tồn tại")
+        
+        user = User.objects.create_user(username , email , password)
+        
+        return HttpResponse("save success")  
+    
 
-        else:
-            return HttpResponse ("khong luu dcuo")
 
 
 class loginView(View):
@@ -36,15 +36,14 @@ class loginView(View):
         username = request.POST['username']
         password = request.POST['password']
 
-        # return HttpResponse(username)
-        # return HttpResponse(password)
-        user = authenticate(request ,username = username , password = password)
+        
+
+        user = authenticate(request, username = username , password = password)
         if user is not None:
-            login(request,user)
+            login(request, user)
             return HttpResponse("login success")
         else:
             return HttpResponse("login fall")
-
 
 
 
