@@ -38,8 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'home',
-    'register',
+    # 'register',
     'news',
+    'usermember',
 
 
     #tên thư mục 
