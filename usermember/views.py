@@ -1,11 +1,17 @@
 # views.py
+from django.urls import reverse
 from django.shortcuts import render, redirect
+from django.http import HttpResponse
 from .forms import LoginForm, RegisterForm
 from .models import CustomUser
-from django.views import View
-from django.contrib.auth import authenticate , login
 
-from django.http import HttpResponse
+
+from django.views import View
+from django.contrib import messages
+from django.contrib.auth import authenticate , login 
+from django.contrib.auth.models import User
+
+
 
 class register_view(View):
     def get(self , request):
@@ -14,18 +20,25 @@ class register_view(View):
     def post(self , request):
         form = RegisterForm(request.POST)
         if form.is_valid():
-            savecf = CustomUser(username = form.cleaned_data['username'],
-                                password = form.cleaned_data['password'] 
-                                )
-            savecf.save()
-            return HttpResponse("dki thanh cong")
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password']
+            # Kiểm tra xem người dùng đã tồn tại hay không
+            if User.objects.filter(username=username).exists():
+                messages.error(request, "Tên người dùng đã tồn tại")
+                return redirect('usermember:register')
+            else:
+                user = User.objects.create_user(username=username, password=password)
+                messages.success(request, 'Đăng ký thành công')
+                login_url = reverse('usermember:login')  # Xác định URL của trang đăng nhập
+                return redirect(login_url)  # Chuyển hướng đến trang đăng nhập
         else:
-            return HttpResponse("dki khong thanh cong")
-        
+            messages.error(request, 'Dữ liệu không hợp lệ')
+            return redirect('usermember:register')
+ 
 
 class login_view(View):
     def get(self , request):
-        form = LoginForm
+        form = LoginForm()
         return render(request, 'usermember/login.html', {'form': form} )
     def post(self , request):
         form = LoginForm(request.POST)
@@ -36,9 +49,25 @@ class login_view(View):
             # return HttpResponse(user)
             if user is not None:
                 login(request, user)
-                return HttpResponse('dang nhap thanh cong')
+                messages.success(request, 'dang nhap thanh congg')
+                return redirect('home:home')
             else:
-                return HttpResponse("dang nhap that bai")
-                # return render(request, 'usermember/login.html', {'form': form, 'error_message': 'Tên người dùng hoặc mật khẩu không đúng.'})
+                messages.error(request, "dang nhap that bai")
+                return redirect('usermember:login')
+            
         else:
-            return render(request, 'usermember/login.html', {'form': form})
+            messages.error(request, 'du lieu khong hop le')
+            return redirect('usermember:register')
+        
+def my_view(request):
+    # Các công việc khác ở đây
+    some_condition = True
+    # Hiển thị thông báo
+    if some_condition:
+        return render(request, 'my_template.html', {'show_alert': True, 'alert_type': 'success', 'alert_message': 'Thành công!'})
+    else:
+        return render(request, 'my_template.html', {'show_alert': True, 'alert_type': 'error', 'alert_message': 'Lỗi!'})
+
+
+
+
