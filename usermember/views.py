@@ -59,15 +59,5 @@ class login_view(View):
             messages.error(request, 'du lieu khong hop le')
             return redirect('usermember:register')
         
-def my_view(request):
-    # Các công việc khác ở đây
-    some_condition = True
-    # Hiển thị thông báo
-    if some_condition:
-        return render(request, 'my_template.html', {'show_alert': True, 'alert_type': 'success', 'alert_message': 'Thành công!'})
-    else:
-        return render(request, 'my_template.html', {'show_alert': True, 'alert_type': 'error', 'alert_message': 'Lỗi!'})
-
-
 
 
