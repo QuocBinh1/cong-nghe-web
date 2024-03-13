@@ -8,7 +8,7 @@ from .models import CustomUser
 
 from django.views import View
 from django.contrib import messages
-from django.contrib.auth import authenticate , login 
+from django.contrib.auth import authenticate , login ,logout
 from django.contrib.auth.models import User
 
 
@@ -21,13 +21,18 @@ class register_view(View):
         form = RegisterForm(request.POST)
         if form.is_valid():
             username = form.cleaned_data['username']
-            password = form.cleaned_data['password']
+            email = form.cleaned_data['email']
+            password1 = form.cleaned_data['password1']
+            password2 = form.cleaned_data['password2']
             # Kiểm tra xem người dùng đã tồn tại hay không
             if User.objects.filter(username=username).exists():
                 messages.error(request, "Tên người dùng đã tồn tại")
                 return redirect('usermember:register')
+            elif password1 != password2:
+                messages.error(request, "Mật khẩu không khớp")
+                return redirect('usermember:register')
             else:
-                user = User.objects.create_user(username=username, password=password)
+                user = User.objects.create_user(username=username,email=email, password=password1)
                 messages.success(request, 'Đăng ký thành công')
                 login_url = reverse('usermember:login')  # Xác định URL của trang đăng nhập
                 return redirect(login_url)  # Chuyển hướng đến trang đăng nhập
@@ -50,14 +55,15 @@ class login_view(View):
             if user is not None:
                 login(request, user)
                 messages.success(request, 'dang nhap thanh congg')
-                return redirect('home:home')
+                return render(request, 'usermember/private.html')
             else:
                 messages.error(request, "dang nhap that bai")
                 return redirect('usermember:login')
-            
         else:
             messages.error(request, 'du lieu khong hop le')
-            return redirect('usermember:register')
-        
+            return redirect('usermember:login')
+def logout_view(request):
+    logout(request)
+    return HttpResponse("ban da dang xuat thanh cong")    
 
 

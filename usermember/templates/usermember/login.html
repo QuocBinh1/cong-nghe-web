@@ -1,23 +1,21 @@
 <!-- login.html -->
-    
-
-{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Đăng Nhập</title>
     <style type="text/css">
         @import url("//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css");
         .login-block{
-            background: #DE6262;  /* fallback for old browsers */
-        background: -webkit-linear-gradient(to bottom, #FFB88C, #DE6262);  /* Chrome 10-25, Safari 5.1-6 */
-        background: linear-gradient(to bottom, #FFB88C, #DE6262); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-        float:left;
-        width:100%;
-        padding : 50px 0;
+          background: #DE6262;  /* fallback for old browsers */
+          background: -webkit-linear-gradient(to bottom, #FFB88C, #DE6262);  /* Chrome 10-25, Safari 5.1-6 */
+          background: linear-gradient(to bottom, #FFB88C, #DE6262); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+          float:left;
+          width:100%;
+          padding : 50px 0;
         }
         .banner-sec{background:url(https://static.pexels.com/photos/33972/pexels-photo.jpg)  no-repeat left bottom; background-size:cover; min-height:500px; border-radius: 0 10px 10px 0; padding:0;}
         .container{background:#fff; border-radius: 10px; box-shadow:15px 20px 0px rgba(0,0,0,0.1);}
@@ -34,177 +32,127 @@
         .banner-text h2{color:#fff; font-weight:600;}
         .banner-text h2:after{content:" "; width:100px; height:5px; background:#FFF; display:block; margin-top:20px; border-radius:3px;}
         .banner-text p{color:#fff;}
-        <!-- Trong file CSS -->
-    
-    ..login-form {
-        max-width: 400px;
-        margin: auto; 
-        padding: 20px; 
-        background-color: #f7f7f7; 
-        border-radius: 10px; 
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); 
-    }
-
-    .login-form .form-group {
-        margin-bottom: 20px; 
-    }
-
-    .login-form label {
-        font-weight: bold; 
-    }
-
-    .login-form input[type="text"],
-    .login-form input[type="password"] {
-        width: 100%; 
-        padding: 10px;
-        border: 1px solid #ddd; 
-        border-radius: 5px; 
-    }
-
-    .login-form button[type="submit"] {
-        width: 100%; 
-        padding: 10px; 
-        border: none; 
-        border-radius: 5px; 
-        background-color: #007bff; 
-        color: #fff;
-        font-weight: bold;
-        cursor: pointer; 
-    }
-
-    .login-form button[type="submit"]:hover {
-        background-color: #0056b3; 
-    }
-</style>
 
 
 
-
+    </style>
 </head>
-<body>
-    <div class="container">
-    {% comment %} ------------------------------------------------------------------------------------------------ {% endcomment %}
-        <div class="menu">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <div class="container-fluid">
-                <a href="{% url 'home:home' %}">
-                <img src="https://media.dau.edu.vn/Media/2_SVDAU/Images/dau-csv12982278-5-e.png" alt="text describing the image">
+<body> 
+    
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+{% comment %} --------------------------------------------------------------------------------------------- {% endcomment %}
+  <div class="menu">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+        <a href="{% url 'home:home' %}">
+        <img src="https://media.dau.edu.vn/Media/2_SVDAU/Images/dau-csv12982278-5-e.png" alt="text describing the image">
+        </a>
+          {% comment %} <img src="https://media.dau.edu.vn/Media/2_SVDAU/Images/dau-csv12982278-5-e.png" alt=""> {% endcomment %}
+          
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{% url 'usermember:register' %}">Đăng Kí</a>
+                
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'usermember:login' %}">Đăng Nhập</a>
+                
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Chăm Sóc Khách Hàng
                 </a>
-                  {% comment %} <img src="https://media.dau.edu.vn/Media/2_SVDAU/Images/dau-csv12982278-5-e.png" alt=""> {% endcomment %}
-                  
-                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                  </button>
-                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                      <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{% url 'usermember:register' %}">Đăng Kí</a>
-                        
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="{% url 'usermember:login' %}">Đăng Nhập</a>
-                        
-                      </li>
-                      <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                          Chăm Sóc Khách Hàng
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <li><a class="dropdown-item" href="#">Action</a></li>
-                          <li><a class="dropdown-item" href="#">Another action</a></li>
-                          <li><hr class="dropdown-divider"></li>
-                          <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="{% url 'news:news' %}">Tin Tức</a>
-                      </li>
-                    </ul>
-                    <form class="d-flex">
-                      <input class="form-control me-2" type="search" placeholder="bạn cần tìm gì ?" aria-label="Search">
-                      <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>
-                  </div>
-                </div>
-              </nav>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'news:news' %}">Tin Tức</a>
+              </li>
+            </ul>
+            <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="bạn cần tìm gì ?" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
 
-        </div> 
-        {% comment %} ------------------------------------------------------------------------------------------------ {% endcomment %}
-        <section class="login-block">
-            <div class="container">
-            <div class="row">
-                <div class="col-md-4 login-sec">
-                    <h2 class="text-center">Đăng Nhập Ngay</h2>
-        <form method="post" class="login-form">
+  </div> 
+<!------ Include the above in your HEAD tag ---------->
+
+  <section class="login-block">
+    <div class="container">
+    <div class="row">
+      <div class="col-md-4 login-sec">
+       <h2 class="text-center">Đăng Nhập Ngay</h2>
+          <form method="post" class="register-form">
             {% csrf_token %}
             <div class="form-group">
-                <label for="{{ form.username.id_for_label }}" class="text-uppercase">{{ form.username.label }}</label>
-                {{ form.username }}
+                <label for="id_username" class="text-uppercase">Tên người dùng:</label>
+                <input type="text" name="username" id="id_username" class="form-control">
             </div>
             <div class="form-group">
-                <label for="{{ form.password.id_for_label }}" class="text-uppercase">{{ form.password.label }}</label>
-                {{ form.password }}
+                <label for="id_password" class="text-uppercase">Mật khẩu:</label>
+                <input type="password" name="password" id="id_password" class="form-control">
             </div>
-            <div class="form-check">
-                <label class="form-check-label">
-                    <input type="checkbox" class="form-check-input">
-                    <small>Nhớ Mật Khẩu</small>
-                </label>
-            </div>
-            <button type="submit" class="btn btn-login float-right">Đăng Nhập</button>
-            </form>
-
-
-        <div class="copy-text">Tạo Bởi<i class="fa fa-heart"></i> <a href="fb.com/tiemmaykingsman">Quốc Bình</a></div>
-                </div>
-                <div class="col-md-8 banner-sec">
-                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                            <ol class="carousel-indicators">
-                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                            </ol>
-                    <div class="carousel-inner" role="listbox">
-            <div class="carousel-item active">
-                <img class="d-block img-fluid" src="https://static.pexels.com/photos/33972/pexels-photo.jpg" alt="First slide">
-                <div class="carousel-caption d-none d-md-block">
-                <div class="banner-text">
-                    <h2>This is Heaven</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
-                </div>	
-            </div>
-            </div>
-            <div class="carousel-item">
-                <img class="d-block img-fluid" src="https://images.pexels.com/photos/7097/people-coffee-tea-meeting.jpg" alt="First slide">
-                <div class="carousel-caption d-none d-md-block">
-                <div class="banner-text">
-                    <h2>This is Heaven</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
-                </div>	
-            </div>
-            </div>
-            <div class="carousel-item">
-                <img class="d-block img-fluid" src="https://images.pexels.com/photos/872957/pexels-photo-872957.jpeg" alt="First slide">
-                <div class="carousel-caption d-none d-md-block">
-                <div class="banner-text">
-                    <h2>This is Heaven</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
-                </div>	
-            </div>
-            </div>
-                    </div>	   
-                    
-                </div>
-            </div>
-        </div>
-        </section>
-
+            <input type="submit" class="btn btn-login float-right" value="đâng nhập">
+          </form>
+    
+  </form>
+  <div class="copy-text">Created with <i class="fa fa-heart"></i> by <a href="http://grafreez.com">Grafreez.com</a></div>
+      </div>
+      <div class="col-md-8 banner-sec">
+              <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                  <ol class="carousel-indicators">
+                      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                    </ol>
+              <div class="carousel-inner" role="listbox">
+      <div class="carousel-item active">
+        <img class="d-block img-fluid" src="https://static.pexels.com/photos/33972/pexels-photo.jpg" alt="First slide">
+        <div class="carousel-caption d-none d-md-block">
+          <div class="banner-text">
+              <h2>This is Heaven</h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
+          </div>	
     </div>
+      </div>
+      <div class="carousel-item">
+        <img class="d-block img-fluid" src="https://images.pexels.com/photos/7097/people-coffee-tea-meeting.jpg" alt="First slide">
+        <div class="carousel-caption d-none d-md-block">
+          <div class="banner-text">
+              <h2>This is Heaven</h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
+          </div>	
+      </div>
+      </div>
+      <div class="carousel-item">
+        <img class="d-block img-fluid" src="https://images.pexels.com/photos/872957/pexels-photo-872957.jpeg" alt="First slide">
+        <div class="carousel-caption d-none d-md-block">
+          <div class="banner-text">
+              <h2>This is Heaven</h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
+          </div>	
+        </div>
+      </div>     
+      </div>	        
+      </div>
+    </div>
+  </div>
+  </section>
 
-
-
-
-
+{% comment %} ----------------------------------------------------------------------------------------- {% endcomment %}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
