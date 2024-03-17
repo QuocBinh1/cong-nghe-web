@@ -6,9 +6,7 @@ urlpatterns = [
     path('', RedirectView.as_view(url='home/')),
     path('home/' ,     include('home.urls')),
     path('usermember/',include('usermember.urls')),
-   
     path('news/'    ,  include('news.urls')),
-    # path('register/' , include('register.urls')),
     
 
 ]
