@@ -1,4 +1,4 @@
-<!-- register.html -->
+<!-- login.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,9 +8,9 @@
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-    
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đăng Kí</title>
+    <title>Đăng Nhập</title>
     <style type="text/css">
         @import url("//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css");
         .login-block{
@@ -22,7 +22,7 @@
           padding : 50px 0;
         }
         .banner-sec{background:url(https://static.pexels.com/photos/33972/pexels-photo.jpg)  no-repeat left bottom; background-size:cover; min-height:500px; border-radius: 0 10px 10px 0; padding:0;}
-        .container{background:#fff; border-radius: 10px; box-shadow:15px 20px 0px rgba(0,0,0,0.1);}
+        .login-block .container{background:#fff; border-radius: 10px; box-shadow:15px 20px 0px rgba(0,0,0,0.1);}
         .carousel-inner{border-radius:0 10px 10px 0;}
         .carousel-caption{text-align:left; left:5%;}
         .login-sec{padding: 50px 30px; position:relative;}
@@ -42,86 +42,64 @@
     </style>
 </head>
 <body> 
-    
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-{% comment %} --------------------------------------------------------------------------------------------- {% endcomment %}
-  <!--header-->
-  <section class="myheader">
-    <div class="container py-3">
-      <div class="row">
-        <div class="col-md-3">
-            <a href="{% url 'home:home' %}">
-                <img class="img-fluid" src="//bizweb.dktcdn.net/100/329/122/themes/940689/assets/logo.png?1710388119865" alt="logo" width="248" height="56">
-              </a>        </div>
-        <div class="col-md-4">
-          <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Bạn Cần Tìm Gì ?" aria-label="Bạn Cần Tìm Gì ?" aria-describedby="basic-addon2">
-            <span class="input-group-text" id="basic-addon2">
-              <i class="fa-solid fa-magnifying-glass"></i></span>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="row">
-            
-            <div class="col"><div class="row"><div class="col-md-3"><div class="fs-2 text-danger"><i class="fa-solid fa-phone"></i></div></div>
-            <div class="col-md-9">Tư Vấn hỗ Trợ<br><strong>0367497502</strong></div></div>
-          </div>
 
-          <div class="col"><div class="row"><div class="col-md-3"><div class="fs-2 text-danger"><i class="fa-regular fa-user"></i></div></div>
-            
-            <div class="col-md-9">Xin CHào<br><a href="{% url 'usermember:login' %}"><strong>Đăng Nhập</strong></a></div></div>
-            
-          </div>
+{% comment %} --------------------------------------------------------------------------------------------- {% endcomment %}
+<section class="myheader">
+  <div class="container py-3">
+    <div class="row">
+      <div class="col-md-3">
+        <a href="{% url 'home:home' %}">
+          <img class="img-fluid" src="//bizweb.dktcdn.net/100/329/122/themes/940689/assets/logo.png?1710388119865" alt="logo" width="248" height="56">
+        </a>
+      </div>
+      <div class="col-md-4">
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Bạn Cần Tìm Gì ?" aria-label="Bạn Cần Tìm Gì ?" aria-describedby="basic-addon2">
+          <span class="input-group-text" id="basic-addon2">
+            <i class="fa-solid fa-magnifying-glass"></i></span>
         </div>
       </div>
-      <div class="col-md">
-        <button href ="#" class="position-relative">
-          <span class="fs-4"><i class="fa-solid fa-cart-shopping"></i></span>
-          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-            0
-            <span class="visually-hidden">unread messages</span>
-          </span>
-        </button>
+      <div class="col-md-3">
+        <div class="row">
+          <div class="col"><div class="row"><div class="col-md-3"><div class="fs-2 text-danger"><i class="fa-solid fa-phone"></i></div></div>
+          <div class="col-md-9">Tư Vấn hỗ Trợ<br><strong>0367497502</strong></div></div>
+        </div>
+        <div class="col"><div class="row"><div class="col-md-3"><div class="fs-2 text-danger"><i class="fa-regular fa-user"></i></div></div>
+          <div class="col-md-9">Xin Chào!<br><a href="{% url 'usermember:login' %}"><strong>Đăng Nhập</strong></a></div></div>
+        </div>
       </div>
-    
     </div>
-  </section>
+    <div class="col-md">
+      <button href ="#" class="position-relative">
+        <span class="fs-4"><i class="fa-solid fa-cart-shopping"></i></span>
+        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+          0
+          <span class="visually-hidden">unread messages</span>
+        </span>
+      </button>
+    </div>
+  
+  </div>
+</section>
 <!------ Include the above in your HEAD tag ---------->
 
   <section class="login-block">
     <div class="container">
     <div class="row">
       <div class="col-md-4 login-sec">
-        <h2 class="text-center">Đăng Kí Ngay</h2>
-
-        <form method="post" class="login-form">
-          {% csrf_token %}
-          <div class="form-group">
-              <label for="id_username" class="text-uppercase">Tên người dùng:</label>
-              <input type="text" name="username" id="id_username" class="form-control">
-          </div>
-          <div class="form-group">
-              <label for="id_email" class="text-uppercase">Email:</label>
-              <input type="email" name="email" id="id_email" class="form-control">
-          </div>
-          <div class="form-group">
-              <label for="id_password" class="text-uppercase">Mật khẩu:</label>
-              <input type="password" name="password1" id="id_password" class="form-control">
-          </div>
-          <div class="form-group">
-              <label for="id_password2" class="text-uppercase">Nhập lại mật khẩu:</label>
-              <input type="password" name="password2" id="id_password2" class="form-control">
-          </div>
-      
-          <div class="form-check">
-              <input type="checkbox" name="remember_me" class="form-check-input">
-              <label class="form-check-label" for="remember_me"><small>Nhớ Mật Khẩu</small></label>
-          </div>
-          <button type="submit" name="register_submit" class="btn btn-login float-right">Đăng Kí</button>
-      </form>
-      
+       <h2 class="text-center">Đăng Nhập Ngay</h2>
+          <form method="post" class="register-form">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="id_username" class="text-uppercase">Tên người dùng:</label>
+                <input type="text" name="username" id="id_username" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="id_password" class="text-uppercase">Mật khẩu:</label>
+                <input type="password" name="password" id="id_password" class="form-control">
+            </div>
+            <input type="submit" class="btn btn-login float-right" value="đăng nhập">
+          </form>
     
   </form>
   <div class="copy-text">Created with <i class="fa fa-heart"></i> by <a href="http://grafreez.com">Grafreez.com</a></div>
@@ -165,7 +143,7 @@
       </div>
     </div>
   </div>
-  </section>
+  </section> 
 
 {% comment %} ----------------------------------------------------------------------------------------- {% endcomment %}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>

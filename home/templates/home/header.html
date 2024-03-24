@@ -1,0 +1,45 @@
+<header>
+    <section class="myheader">
+        <div class="container py-3">
+          <div class="row">
+            <div class="col-md-3">
+              <a href="{% url 'home:home' %}">
+                <img class="img-fluid" src="//bizweb.dktcdn.net/100/329/122/themes/940689/assets/logo.png?1710388119865" alt="logo" width="248" height="56">
+              </a>        
+            </div>
+            <div class="col-md-4">
+              <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Bạn Cần Tìm Gì ?" aria-label="Bạn Cần Tìm Gì ?" aria-describedby="basic-addon2">
+                <span class="input-group-text" id="basic-addon2">
+                  <i class="fa-solid fa-magnifying-glass"></i></span>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="row">
+                
+                <div class="col"><div class="row"><div class="col-md-3"><div class="fs-2 text-danger"><i class="fa-solid fa-phone"></i></div></div>
+                <div class="col-md-9">Tư Vấn hỗ Trợ<br><strong>0367497502</strong></div></div>
+              </div>
+    
+              <div class="col"><div class="row"><div class="col-md-3"><div class="fs-2 text-danger"><i class="fa-regular fa-user"></i></div></div>
+                
+                <div class="col-md-9">Xin CHào<br><a href="{% url 'usermember:login' %}"><strong>Đăng Nhập</strong></a></div></div>
+                
+              </div>
+            </div>
+          </div>
+          <div class="col-md">
+            <button href ="#" class="position-relative">
+              <span class="fs-4"><i class="fa-solid fa-cart-shopping"></i></span>
+              <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                0
+                <span class="visually-hidden">unread messages</span>
+              </span>
+            </button>
+          </div>
+        
+        </div>
+      </section>
+</header>
+</body>
+</html>

@@ -70,7 +70,7 @@ ROOT_URLCONF = 'pythonweb.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['home/templates'],#them duong dẫn mặc định 
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
