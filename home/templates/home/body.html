@@ -3,7 +3,35 @@
     <div class="mybody my-3">
       <div class="container">
         <div class="slider">
-
+          <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+<!-- lấy trong data base-->
+                <img src="//bizweb.dktcdn.net/100/329/122/files/sieu-toc-1170-x-350-80-kb-108ef56b-6e04-41a2-9509-46c6635b75d3.jpg?v=1710925648590" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+<!-- lấy trong data base-->
+                <img src="//bizweb.dktcdn.net/100/329/122/files/sieu-toc-1170-x-350-80-kb-108ef56b-6e04-41a2-9509-46c6635b75d3.jpg?v=1710925648590" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+<!-- lấy trong data base-->
+                <img src="//bizweb.dktcdn.net/100/329/122/files/sieu-toc-1170-x-350-80-kb-108ef56b-6e04-41a2-9509-46c6635b75d3.jpg?v=1710925648590" class="d-block w-100" alt="...">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
         </div>
         <!--  end slider -->
         <div class="slider">
@@ -12,6 +40,20 @@
         <!--  end slider -->
       </div>
     </div>
+
+    <h1>thêm sản phẩm</h1>
+    sa
+    <ul>
+      {% for p in post %}
+          <li>Title: {{ p.title }}</li>
+          <li>Content: {{ p.content }}</li>
+          <li>Body: {{ p.body }}</li>
+          <li>img: {{ p.image }}</li>
+          <!-- Add other fields as needed -->
+      {% endfor %}
+    </ul>
+
+
 </body>
 </body>
 </html>

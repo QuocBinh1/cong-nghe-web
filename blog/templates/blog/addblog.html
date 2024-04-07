@@ -1,0 +1,19 @@
+{% comment %} {% extends 'blog/add.html' %} {% block title %} add blog {% endblock %}  {% endcomment %}
+{% block content %}
+<h1>thêm sản phẩm </h1>
+<div id="main-wrapper">
+    <div class="wrapper style3">
+        <div class="inner">
+            <div class="container">
+                <form action="{% url 'addblog'%}" enctype="multipart/form-data"method="POST">
+                    {% csrf_token %}
+                    <div class="container mt-4">
+                        {{ form.media }} {{ form.as_p }}
+                        <button class="btn btn-primary">Add Blog</button>
+                    </div>
+                </form>
+            </div>  
+        </div>
+    </div>
+</div>
+{% endblock %}

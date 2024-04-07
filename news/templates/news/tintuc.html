@@ -10,7 +10,7 @@
     {% block content%}
         {% for i in pf %}
             <p><a href="{% url 'news:postDetaill' i.id %}">{{i.title}}</a></p>
-            
+            {% comment %} <img src="{{news.img.url}}" width="500px" height="300px" /> {% endcomment %}
         {% endfor %}   
 
     {% endblock %}
