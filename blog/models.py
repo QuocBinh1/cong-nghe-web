@@ -7,7 +7,7 @@ class Post(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     description = models.TextField()
     content = models.TextField()
-    image = models.ImageField(null=True)
+    image = models.ImageField(upload_to='post_images/')
     date = models.DateTimeField(auto_now_add=True)
     def get_absolute_url(self):
         return reverse('blog')

@@ -1,3 +1,9 @@
+<style>
+  .product-image {
+      width: 100%;
+      height: auto;
+  }
+</style>
 <body>
     <!-- Nội dung của phần footer -->
     <div class="mybody my-3">
@@ -41,19 +47,41 @@
       </div>
     </div>
 
-    <h1>thêm sản phẩm</h1>
-    sa
-    <ul>
-      {% for p in post %}
-          <li>Title: {{ p.title }}</li>
-          <li>Content: {{ p.content }}</li>
-          <li>Body: {{ p.body }}</li>
-          <li>img: {{ p.image }}</li>
-          <!-- Add other fields as needed -->
-      {% endfor %}
-    </ul>
+    <div class="product-list mb-3">
+      <div class="product_title border-bottom">
+        <strong class="bg-danger text-white">Laptop</strong>
+      </div>
+{% comment %} ----------------------------------------------------------------------------------------- {% endcomment %}
+      <div class="container">
+        <div class="row">
+            {% for item in posts %}
+            <div class="col-md-3">
+                <div class="card mb-3">
+                    <img src="{{ item.image.url }}" class="card-img-top product-image" alt="{{ item.title }}">
+                    <div class="card-body">
+                        <h5 class="card-id">{{ item.id }}</h5>
+                        <h5 class="card-title">{{ item.title }}</h5>
+                        <p class="card-text">{{ item.content }}</p>
+                        <a href="http://127.0.0.1:8000/home/product_detail/{{item.id}}" class="btn btn-primary">Xem chi tiết</a>
+                        <button class="btn btn-outline-secondary add-btn">Thêm Vào Giỏ Hàng</button>
+                      </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    
+{% comment %} ----------------------------------------------------------------------------------------- {% endcomment %}
 
-
+    </div>
+    {% comment %} <h1>thêm sản phẩm</h1>
+    {% for i in posts %}
+      <h2>{{i.title}}</h2>
+      <p>{{i.description}}</p>
+      <p><img src="{{i.image.url}}" alt="" width="20%"></p>
+    {% endfor %} {% endcomment %}
+    
+   
 </body>
 </body>
 </html>
