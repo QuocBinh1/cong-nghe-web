@@ -4,12 +4,16 @@ from blog.models import Post , Comment
 from . import views
 from django.conf.urls.static import static
 from django.conf import settings
+from .views import product_detail
 app_name = 'home'
 urlpatterns = [
     path('' , views.index , name='home'),
-    path('product_detail/<int:product_id>', views.product_detail, name='product_detail'),
-    path('cart/', views.cart, name='cart'),
-    path('other_product_detail/', views.other_product_detail, name='other_product_detail'),
+    path('product/<int:product_id>/', views.product_detail, name='product_detail'),
+
+
+    
+    # path('cart/', views.cart, name='cart'),
+    # path('other_product_detail/', views.other_product_detail, name='other_product_detail'),
 
 
 

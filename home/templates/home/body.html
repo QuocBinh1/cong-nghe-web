@@ -54,17 +54,17 @@
 {% comment %} ----------------------------------------------------------------------------------------- {% endcomment %}
       <div class="container">
         <div class="row">
-            {% for item in posts %}
+            {% for product in posts %}
             <div class="col-md-3">
                 <div class="card mb-3">
-                    <img src="{{ item.image.url }}" class="card-img-top product-image" alt="{{ item.title }}">
+                    <img src="{{ product.image.url }}" class="card-img-top product-image" alt="{{ product.title }}">
                     <div class="card-body">
-                        <h5 class="card-id">{{ item.id }}</h5>
-                        <h5 class="card-title">{{ item.title }}</h5>
-                        <p class="card-text">{{ item.content }}</p>
-                        <a href="http://127.0.0.1:8000/home/product_detail/{{item.id}}" class="btn btn-primary">Xem chi tiết</a>
+                        <h5 class="card-id">{{ product.id }}</h5>
+                        <h5 class="card-title">{{ product.title }}</h5>
+                        <p class="card-text">{{ product.content }}</p>
+                        <a href="{% url 'home:product_detail' product_id=product.id %}" class="btn btn-primary">Xem chi tiết</a>
                         <button class="btn btn-outline-secondary add-btn">Thêm Vào Giỏ Hàng</button>
-                      </div>
+                      </div>  
                 </div>
             </div>
             {% endfor %}

@@ -7,8 +7,6 @@ class LoginForm(forms.Form):
 
 class RegisterForm(forms.Form):
     username = forms.CharField(max_length=20 ,label= 'Tài khoản1')
-    hovaten = forms.CharField(max_length=20 ,label= 'Họ Và Tên')
-    tuoi = forms.CharField(max_length=3 ,label= 'tuoi')
     email = forms.EmailField(label='Gmail') 
     password1 = forms.CharField(label='Mật Khẩu1',widget=forms.PasswordInput)
     password2 = forms.CharField(label='Nhập Lại Mật Khẩu',widget=forms.PasswordInput)

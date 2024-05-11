@@ -61,7 +61,9 @@ class login_view(View):
             if user is not None:
                 login(request, user)
                 messages.success(request, 'dang nhap thanh congg')
-                return render(request, 'usermember/private.html')
+                # return render(request, 'usermember/private.html')
+                return render(request, 'home/trangchu.html')
+
             else:
                 messages.error(request, "dang nhap that bai")
                 return redirect('usermember:login')
