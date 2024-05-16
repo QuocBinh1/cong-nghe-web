@@ -59,9 +59,10 @@
                 <div class="card mb-3">
                     <img src="{{ product.image.url }}" class="card-img-top product-image" alt="{{ product.title }}">
                     <div class="card-body">
-                        <h5 class="card-id">{{ product.id }}</h5>
-                        <h5 class="card-title">{{ product.title }}</h5>
-                        <p class="card-text">{{ product.content }}</p>
+                        
+                        <h5 class="card-title">{{ product.title|truncatechars:45 }}</h5>
+                        <h5 class="card-id">{{ product.price_formatted }}đ</h5>
+                        <p class="card-text">{{ product.description|truncatechars:80   }}</p>
                         <a href="{% url 'home:product_detail' product_id=product.id %}" class="btn btn-primary">Xem chi tiết</a>
                         <button class="btn btn-outline-secondary add-btn">Thêm Vào Giỏ Hàng</button>
                       </div>  

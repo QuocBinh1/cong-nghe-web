@@ -12,6 +12,7 @@ urlpatterns = [
     path('usermember/',include('usermember.urls')),
     path('news/'    ,  include('news.urls')),
     path('addblog/'    ,  include('blog.urls')),
+    path('', include('blog.urls')),
     
 
 ]

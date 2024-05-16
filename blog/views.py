@@ -2,6 +2,8 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from blog.forms import BlogPostForm
 from .models import *
+import pytz
+
 @login_required(login_url = '/login')
 def add_blogs(request):
     form = BlogPostForm()
@@ -17,3 +19,4 @@ def add_blogs(request):
     else:
         form=BlogPostForm()
     return render(request, "blog/addblog.html", {'form':form})
+

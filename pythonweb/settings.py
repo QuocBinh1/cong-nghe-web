@@ -39,8 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'home',
     'news',
-    'usermember',
-    'blog',
+    'usermember', 
+    'blog.apps.BlogConfig',
     
 
     #tên thư mục 
@@ -141,6 +141,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
+#định dạng file ảnh
 STATIC_URL = 'static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+
+
+
+#định dạng thời gian
+TIME_ZONE = 'Asia/Ho_Chi_Minh'
+USE_TZ = True
