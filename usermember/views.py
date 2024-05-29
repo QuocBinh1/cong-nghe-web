@@ -53,20 +53,29 @@ class login_view(View):
         if form.is_valid():
             username = form.cleaned_data['username'] #dữ liệu trong form
             password = form.cleaned_data['password']#dữ liệu trong form
+            user_obj = User.objects.filter(email=username).first()
+
+            if not user_obj:
+                user_obj = User.objects.filter(username = username).first()
+            print("oooooo",type(user_obj))
             try:
-                user = authenticate(request, username = User.objects.get(email=username) , password = password)
-            except:
-                user = authenticate(request, username = username , password = password)
+                user = authenticate(request, username=user_obj.username, password=password)
+            except User.DoesNotExist:
+                # If the user with the given email doesn't exist, try to authenticate using the username directly
+                user = authenticate(request, username=username, password=password)
             # return HttpResponse(user)
             if user is not None:
                 login(request, user)
                 messages.success(request, 'dang nhap thanh congg')
                 # return render(request, 'usermember/private.html')
-                return render(request, 'home/trangchu.html')
+                # return render(request, 'home/trangchu.html')
+                return redirect('home:home')
 
             else:
-                messages.error(request, "dang nhap that bai")
+                # messages.error(request, "dang nhap that bai")
                 return redirect('usermember:login')
+                # return render(request, 'home/trangchu.html')
+
         else:
             messages.error(request, 'du lieu khong hop le')
             return redirect('usermember:login')

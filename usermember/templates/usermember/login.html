@@ -59,8 +59,8 @@
     
     .password-toggle-icon {
         position: absolute;
-        top: 325px;
-        right: 180px;
+        top: 375px;
+        right: 215px;
         
         transform: translateY(-50%);
         cursor: pointer;
@@ -93,7 +93,8 @@
     <h2 class="text-center">Đăng Nhập Ngay</h2>
     <form method="post" class="register-form">
         {% csrf_token %}
-        <div class="form-group">
+        {{ form.as_p }}
+        {% comment %} <div class="form-group"> 
             <label for="id_username" class="text-uppercase">Tên Tài Khoản:</label>
             <input type="text" name="username" id="id_username" class="form-control">
         </div>
@@ -105,13 +106,16 @@
                 <i class="fas fa-eye"></i>
                 </span>
              </div>
-        </div>
+        </div> {% endcomment %}
         <a href="{% url 'usermember:register'%}">Bạn Chưa Có Tài Khoản?</a>
         <br>
         <input type="submit" class="btn btn-login float-right" value="đăng nhập">
     </form>
 </div>
 
+
+
+{% comment %} tạo con mắt hiển thị mật khẩu {% endcomment %}
 <script>
     function togglePasswordVisibility() {
         var passwordInput = document.getElementById("id_password");

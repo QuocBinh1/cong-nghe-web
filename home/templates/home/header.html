@@ -22,23 +22,45 @@
                 <div class="col"><div class="row"><div class="col-md-3"><div class="fs-2 text-danger"><i class="fa-solid fa-phone"></i></div></div>
                 <div class="col-md-9">Tư Vấn hỗ Trợ<br><strong>0367497502</strong></div></div>
               </div>
-    
-              <div class="col"><div class="row"><div class="col-md-3"><div class="fs-2 text-danger"><i class="fa-regular fa-user"></i></div></div>
+             <div class="col"><div class="row"><div class="col-md-3"><div class="fs-2 text-danger"><a href="#"><i class="fa-regular fa-user"></i></a></div></div>
+              
                 
-                <div class="col-md-9">Xin CHào<br><a href="{% url 'usermember:login' %}"><strong>Đăng Nhập</strong></a></div></div>
+                
+                
+                  <div class="col-md-9">Xin Chào!  <br>
+                  {% if user.is_authenticated %}{{ user.username }}
+                  <br>
+                    <a href="{% url 'usermember:logout' %}">Đăng Xuất</a>
+                  {% else %}
+                  
+                      <a href="{% url 'usermember:login' %}">Đăng Nhập</a>
+                  {% endif %}
+
+                </div>
+
+                
+              </div>
                 
               </div>
             </div>
           </div>
-          <div class="col-md">
-            <button href ="#" class="position-relative">
-              <span class="fs-4"><i class="fa-solid fa-cart-shopping"></i></span>
-              <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                0
-                <span class="visually-hidden">unread messages</span>
-              </span>
-            </button>
-          </div>
+          
+            <!-- templates/cart_icon.html -->
+            <div class="col-md">
+              <a href="{% url 'orders:order_history' %}">
+                  <button class="position-relative">
+                      <span class="fs-4"><i class="fa-solid fa-cart-shopping"></i></span>
+                      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                          {{ order_count }}
+                          <span class="visually-hidden">unread messages</span>
+                      </span>
+                  </button>
+              </a>
+            </div>
+
+
+            
+         
         
         </div>
       </section>

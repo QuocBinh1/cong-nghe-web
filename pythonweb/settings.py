@@ -40,7 +40,9 @@ INSTALLED_APPS = [
     'home',
     'news',
     'usermember', 
-    'blog.apps.BlogConfig',
+    'product',
+    'orders'
+    # 'blog.apps.BlogConfig',
     
 
     #tên thư mục 
@@ -78,6 +80,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'home.context_processors.cart_icon',  #đếm số lượng đơn hàng hiển thị ở header
             ],
         },
     },

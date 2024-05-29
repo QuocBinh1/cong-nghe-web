@@ -49,29 +49,38 @@
 
     <div class="product-list mb-3">
       <div class="product_title border-bottom">
-        <strong class="bg-danger text-white">Laptop</strong>
+        <strong class="bg-danger text-white">IPhone </strong>
       </div>
 {% comment %} ----------------------------------------------------------------------------------------- {% endcomment %}
-      <div class="container">
-        <div class="row">
-            {% for product in posts %}
-            <div class="col-md-3">
-                <div class="card mb-3">
-                    <img src="{{ product.image.url }}" class="card-img-top product-image" alt="{{ product.title }}">
-                    <div class="card-body">
-                        
-                        <h5 class="card-title">{{ product.title|truncatechars:45 }}</h5>
-                        <h5 class="card-id">{{ product.price_formatted }}đ</h5>
-                        <p class="card-text">{{ product.description|truncatechars:80   }}</p>
-                        <a href="{% url 'home:product_detail' product_id=product.id %}" class="btn btn-primary">Xem chi tiết</a>
-                        <button class="btn btn-outline-secondary add-btn">Thêm Vào Giỏ Hàng</button>
-                      </div>  
-                </div>
-            </div>
-            {% endfor %}
-        </div>
-    </div>
-    
+<div class="container">
+  <div class="row">
+      {% for product in posts %}
+      <div class="col-md-3">
+          <a href="{% url 'home:product_detail' product_id=product.id %}" style="text-decoration: none;color: black;">
+              <div class="card mb-3">
+                  {% if product.image %}
+                      <img src="{{ product.image.url }}" class="card-img-top product-image" alt="{{ product.title }}" style="width: 300px; height: 300px">
+                       
+                  {% else %}
+                      <div class="card-img-top product-image-placeholder" style="background-color: #ccc; height: 200px;"></div>
+                  {% endif %}
+                  <div class="card-body">
+                      <h5 class="card-title">{{ product.title|truncatechars:45 }}</h5>
+                      <div style="color: red;"><h5 class="card-id">{{ product.price_formatted }}đ</h5></div>
+                      {% comment %} <p>Số lượng : {{ product.quantity }}</p> {% endcomment %}
+                      <p class="card-text">{{ product.description|truncatechars:80 }}</p>
+                      {% comment %}
+                      <a href="{% url 'home:product_detail' product_id=product.id %}" class="btn btn-primary">Xem chi tiết</a>
+                      <button class="btn btn-outline-secondary add-btn">Thêm Vào Giỏ Hàng</button>
+                      {% endcomment %}
+                  </div>  
+              </div>
+          </a>
+      </div>
+      {% endfor %}
+  </div>
+</div>
+
 {% comment %} ----------------------------------------------------------------------------------------- {% endcomment %}
 
     </div>

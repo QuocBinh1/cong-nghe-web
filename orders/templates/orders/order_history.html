@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Order History</title>
+</head>
+<body>
+    {% include 'home/header.html' %}
+ 
+    <h1>Đơn Hàng Đã Đặt</h1>
+    <ul>
+        {% for order in orders %}
+            <h5 style="color: red;"><b><li>Mã đơn hàng: {{ order.id }} - {{ order.created_at }} </li></b></h5>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"><strong>  Tên sản phẩm:</strong> {{ order.title }}</li>
+                <li class="list-group-item"><strong>  Họ và tên:</strong> {{ order.name }}</li>
+                <li class="list-group-item"><strong>  Số điện thoại:</strong> {{ order.sdt }}</li>
+                <li class="list-group-item"><strong>  Gmail:</strong> {{ order.email }}</li>
+                <li class="list-group-item"><strong>  Số lượng:</strong> {{ order.quantity }}</li>
+                <li class="list-group-item"><strong>  Đơn giá:</strong> {{ order.price }}</li>
+                <li class="list-group-item"><strong>  Tổng tiền:</strong> {{ order.total_price }}</li>
+                <li class="list-group-item"><strong>  Ngày đặt đơn:</strong> {{ order.created_at }}</li>
+                <li class="list-group-item"><strong>  Ngày giao hàng dự kiến:</strong> 5 - 7 ngày</li>
+                <li class="list-group-item"><strong>  Tình Trạng:</strong> {{ order.order_status }}</li>
+                <li class="list-group-item"><strong>  Phương Thức Thanh Toán:</strong> {{ order.payments }}</li>
+                {% comment %} <img src="{{ product.image.url }}" alt="khong co anh"> {% endcomment %}
+            </ul>
+
+        {% endfor %}
+        <a href="#" class="btn btn-primary mt-3">Quay về trang chi tiết sản phẩm</a>
+    </ul>
+    {% include 'home/footer.html' %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+
+</body>
+</html>

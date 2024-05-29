@@ -8,11 +8,12 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', RedirectView.as_view(url='home/')),
-    path('home/' ,     include('home.urls')),
+    path('home/' ,     include('home.urls') ),
     path('usermember/',include('usermember.urls')),
     path('news/'    ,  include('news.urls')),
-    path('addblog/'    ,  include('blog.urls')),
-    path('', include('blog.urls')),
+    path('addproduct/'    ,  include('product.urls')),  
+    path('orders/', include('orders.urls')), 
+    
     
 
 ]
